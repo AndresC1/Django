@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block content %}
+    <!-- Herendar lo del layout, sin esto solo se reemplaza los datos ya agregados como predeterminados -->
+    {{ block.super }}
+    <h1 style="text-align: center;" class="title">AndresC1</h1><hr>
+
+    <h2 style="text-align: center;">Años</h2>
+    <ul>
+    {% for i in year %}
+        <!-- |divisibleby: Saca false o true-->
+        {% if i|divisibleby:2 == True  %}
+            <li style="margin-left: 1cm;">{{ i }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}

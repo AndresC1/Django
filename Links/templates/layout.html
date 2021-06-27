@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!-- Titulo de cada pagina -->
+        {% endblock %}
+        | AndresC1
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <!-- Logo django -->
+            <img src="{% static 'images/logo.png' %}">
+            <h1>Sitio web con django</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/inicio">Inicio</a>
+            </li>
+            <li>
+                <a href="/usuario">Usuario</a>
+            </li>
+            <li>
+                <a href="/Contactos">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina_izquierda"></span>
+        <span class="relleno"></span>
+        <span class="esquina_derecha"></span>
+    </div>
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <!-- Contenido a agregar -->
+            {% endblock %}
+        </div>
+    </div>
+    <footer>AndresC1 &copy; 2021</footer>
+</body>
+
+</html>

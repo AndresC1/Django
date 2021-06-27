@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Hola Mundo
+{% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center;" class="title">{{titulo}}</h2><hr>
+
+<p><h2 class="title">Datos Generales</h2></p>
+
+
+{% if nombres and apellido and genero and edad and carrera %}
+    <p class="dat"><strong>Nombres:</strong> {{nombres}}</p>
+    <p class="dat"><strong>Apellidos:</strong> {{apellido}}</p>
+    <p class="dat"><strong>Genero:</strong> {{genero}}</p>
+    <p class="dat"><strong>Edad:</strong> {{edad}}</p>
+    <p class="dat"><strong>Carrera:</strong> {{carrera}}</p>
+{% else %}
+    <p style="text-align: center;"><strong>DATOS NO ENCONTRADOS</strong></p>
+{% endif %}
+
+
+<h1 class="title"><strong>Lenguajes de Programacion</strong></h1>
+
+
+<ul class="listado">
+    {% for lenguaje in lenguajes %}
+    <!-- forloop.first = Regresa el primer elemento pero con booleano -->
+    <!-- forloop.last = El ultimo elemenrto de la lista con booleano -->
+    <!-- forloop.counter =  Numero de elementos pero listados del 1 al final(forloop.counter0 = Para que empiece del 0)-->
+    <!-- forloop.revcounter = Listado de manera inversa(forloop.revcounter0 = Para que empiece del 0) -->
+        <li>{{forloop.counter}}. {{lenguaje}}</li>
+    {% empty %}
+        <!-- Si esta vacia la lista -->
+        <p><strong>NO HAY LENGUAJES QUE MOSTRAR</strong></p>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
